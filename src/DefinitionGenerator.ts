@@ -273,8 +273,9 @@ export class DefinitionGenerator {
         if (requestModel) {
           const reqModelConfig = {
             schema: {
-              $ref: `#/components/schemas/${documentationConfig.requestModels[requestModelType]
-                }`
+              $ref: `#/components/schemas/${
+                documentationConfig.requestModels[requestModelType]
+              }`
             }
           };
 
