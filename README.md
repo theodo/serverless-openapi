@@ -318,19 +318,19 @@ To add this plugin to your package.json:
 
 **Using npm:**
 ```bash
-npm install @conqa/serverless-openapi-documentation --save-dev
+npm install serverless-openapi --save-dev
 ```
 
 **Using Yarn:**
 ```bash
-yarn add @conqa/serverless-openapi-documentation --dev
+yarn add serverless-openapi --dev
 ```
 
 Next you need to add the plugin to the `plugins` section of your `serverless.yml` file.
 
 ```yml
 plugins:
-  - @conqa/serverless-openapi-documentation
+  - serverless-openapi
 ```
 
 You can confirm the plugin is correctly installed by running:
