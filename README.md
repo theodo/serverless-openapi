@@ -3,7 +3,7 @@
 [![NPM](https://img.shields.io/npm/v/@conqa/serverless-openapi-documentation.svg)](https://npmjs.org/packages/@conqa/serverless-openapi-documentation/)
 [![Travis CI](https://img.shields.io/travis/conqa/serverless-openapi-documentation.svg)](https://travis-ci.org/conqa/serverless-openapi-documentation)
 
-Generates [**OpenAPI 3.0.0**](https://github.com/OAI/OpenAPI-Specification/blob/3.0.0/versions/3.0.0.md) documentation from serverless configuration files. OpenAPI is formerly known as Swagger. The configuration is inspired by the format used in [serverless-aws-documentation](https://www.npmjs.com/package/serverless-aws-documentation).
+Generates [**OpenAPI 3.0.0**](https://github.com/OAI/OpenAPI-Specification/blob/3.0.0/versions/3.0.0.md) documentation from serverless configuration files. OpenAPI is formerly known as Swagger. The configuration is inspired by the format used in [serverless-aws-documentation](https://www.npmjs.com/package/serverless-aws-documentation). This plugin takes over [serverless-openapi-documentation](https://www.npmjs.com/package/serverless-openapi-documentation), which was no longer maintained. It aims to provide improvements, and especially adds support for API Gateway's [HTTP Apis](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api.html).
 
 Works well with [ReDoc](https://github.com/Rebilly/ReDoc).
 
@@ -56,9 +56,9 @@ The `custom` section of your `serverless.yml` can be configured as below:
 ```yml
 custom:
   documentation:
-    version: '1'
-    title: 'My API'
-    description: 'This is my API'
+    version: "1"
+    title: "My API"
+    description: "This is my API"
     # https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#securitySchemeObject
     securitySchemes: {}
     # https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#security-requirement-object
@@ -85,14 +85,14 @@ For more info on `serverless.yml` syntax, see their docs.
 
 #### Models
 
-Models contain additional information that you can use to define schemas for endpoints.  You must define the *content type* for each schema that you provide in the models.
+Models contain additional information that you can use to define schemas for endpoints. You must define the _content type_ for each schema that you provide in the models.
 
-The *required* directives for the models section are as follow:
+The _required_ directives for the models section are as follow:
 
-* `name`: the name of the schema
-* `description`: a description of the schema
-* `contentType`: the content type of the described request/response (ie. `application/json` or `application/xml`).
-* `schema`: The JSON Schema ([website](http://json-schema.org/)) that describes the model. You can either:
+- `name`: the name of the schema
+- `description`: a description of the schema
+- `contentType`: the content type of the described request/response (ie. `application/json` or `application/xml`).
+- `schema`: The JSON Schema ([website](http://json-schema.org/)) that describes the model. You can either:
   - use inline `YAML` to define these
   - use serverless' functionality to merge in external schema file
   - specify a path to json schema in which case if you reuse some types in multiple schemas - they will be included in resulting components once instead of duplicated for each referencing schema
@@ -128,22 +128,22 @@ To define the documentation for a given function event, you need to create a `do
 
 The `documentation` section of the event configuration can contain the following attributes:
 
-* `summary`: a short description of the method
-* `description`: a detailed description of the method
-* `tags`: an array of tags for this event
-* `deprecated`: boolean indicator that indicates clients should migrate away from this function
-* `requestBody`: contains description of the request
-    * `description`: a description of the request body
-* `requestModels`: a list of models to describe the request bodies (see [requestModels](#requestmodels) below)
-* `queryParams`: a list of query parameters (see [queryParams](#queryparams) below)
-* `pathParams`: a list of path parameters (see [pathParams](#pathparams) below)
-* `cookieParams`: a list of cookie parameters (see [cookieParams](#cookieparams) below)
-* `methodResponses`: an array of response models and applicable status codes
-  * `statusCode`: applicable http status code (ie. 200/404/500 etc.)
-  * `responseBody`: contains description of the response
-    * `description`: a description of the body response
-  * `responseHeaders`: a list of response headers (see [responseHeaders](#responseheaders) below)
-  * `responseModels`: a list of models to describe the request bodies (see [responseModels](#responsemodels) below) for each `Content-Type`
+- `summary`: a short description of the method
+- `description`: a detailed description of the method
+- `tags`: an array of tags for this event
+- `deprecated`: boolean indicator that indicates clients should migrate away from this function
+- `requestBody`: contains description of the request
+  - `description`: a description of the request body
+- `requestModels`: a list of models to describe the request bodies (see [requestModels](#requestmodels) below)
+- `queryParams`: a list of query parameters (see [queryParams](#queryparams) below)
+- `pathParams`: a list of path parameters (see [pathParams](#pathparams) below)
+- `cookieParams`: a list of cookie parameters (see [cookieParams](#cookieparams) below)
+- `methodResponses`: an array of response models and applicable status codes
+  - `statusCode`: applicable http status code (ie. 200/404/500 etc.)
+  - `responseBody`: contains description of the response
+    - `description`: a description of the body response
+  - `responseHeaders`: a list of response headers (see [responseHeaders](#responseheaders) below)
+  - `responseModels`: a list of models to describe the request bodies (see [responseModels](#responsemodels) below) for each `Content-Type`
 
 ```yml
 functions:
@@ -196,10 +196,10 @@ functions:
 
 Query parameters can be described as follow:
 
-* `name`: the name of the query variable
-* `description`: a description of the query variable
-* `required`: whether the query parameter is mandatory (boolean)
-* `schema`: JSON schema (inline or file)
+- `name`: the name of the query variable
+- `description`: a description of the query variable
+- `required`: whether the query parameter is mandatory (boolean)
+- `schema`: JSON schema (inline or file)
 
 ```yml
 queryParams:
@@ -214,9 +214,9 @@ queryParams:
 
 Path parameters can be described as follow:
 
-* `name`: the name of the query variable
-* `description`: a description of the query variable
-* `schema`: JSON schema (inline or file)
+- `name`: the name of the query variable
+- `description`: a description of the query variable
+- `schema`: JSON schema (inline or file)
 
 ```yml
 pathParams:
@@ -230,10 +230,10 @@ pathParams:
 
 Cookie parameters can be described as follow:
 
-* `name`: the name of the query variable
-* `description`: a description of the query variable
-* `required`: whether the query parameter is mandatory (boolean)
-* `schema`: JSON schema (inline or file)
+- `name`: the name of the query variable
+- `description`: a description of the query variable
+- `required`: whether the query parameter is mandatory (boolean)
+- `schema`: JSON schema (inline or file)
 
 ```yml
 cookieParams:
@@ -289,9 +289,9 @@ The `responseHeaders/requestHeaders` section of the configuration allows you to 
 
 The attributes for a header are as follow:
 
-* `name`: the name of the HTTP Header
-* `description`: a description of the HTTP Header
-* `schema`: JSON schema (inline or file)
+- `name`: the name of the HTTP Header
+- `description`: a description of the HTTP Header
+- `schema`: JSON schema (inline or file)
 
 ```yml
 responseHeaders:
@@ -317,11 +317,13 @@ This plugin works for Serverless 1.x and up. Serverless 0.5 is not supported.
 To add this plugin to your package.json:
 
 **Using npm:**
+
 ```bash
 npm install serverless-openapi --save-dev
 ```
 
 **Using Yarn:**
+
 ```bash
 yarn add serverless-openapi --dev
 ```
