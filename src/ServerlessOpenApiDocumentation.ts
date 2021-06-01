@@ -65,14 +65,20 @@ export class ServerlessOpenApiDocumentation {
             options: {
               output: {
                 usage: "Output file location [default: openapi.yml|json]",
+                type: "string",
+                required: false,
                 shortcut: "o"
               },
               format: {
                 usage: "OpenAPI file format (yml|json) [default: yml]",
+                type: "string",
+                required: false,
                 shortcut: "f"
               },
               indent: {
                 usage: "File indentation in spaces [default: 2]",
+                type: "string",
+                required: false,
                 shortcut: "i"
               }
             }
