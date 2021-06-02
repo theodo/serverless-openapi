@@ -6,7 +6,7 @@ export interface Model {
   description: string;
   contentType: string;
   schema: string | JSONSchema7;
-  examples: Array<any>;
+  examples: Map<string, any>;
   example: object;
 }
 
@@ -72,7 +72,7 @@ export interface ParameterConfig {
   explode?: boolean;
   allowReserved?: boolean;
   example?: any;
-  examples?: Array<any>;
+  examples?: Map<string, any>;
   content?: Map<string, any>;
 }
 

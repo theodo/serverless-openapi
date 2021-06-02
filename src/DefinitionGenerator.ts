@@ -224,7 +224,7 @@ export class DefinitionGenerator {
 
         if (parameter.example) {
           parameterConfig.example = parameter.example;
-        } else if (parameter.examples && Array.isArray(parameter.examples)) {
+        } else if (parameter.examples) {
           parameterConfig.examples = parameter.examples;
         }
 
@@ -273,9 +273,8 @@ export class DefinitionGenerator {
         if (requestModel) {
           const reqModelConfig = {
             schema: {
-              $ref: `#/components/schemas/${
-                documentationConfig.requestModels[requestModelType]
-              }`
+              $ref: `#/components/schemas/${documentationConfig.requestModels[requestModelType]
+                }`
             }
           };
 
@@ -304,7 +303,7 @@ export class DefinitionGenerator {
   }
 
   private attachExamples(target, config) {
-    if (target.examples && Array.isArray(target.examples)) {
+    if (target.examples) {
       _.merge(config, { examples: _.cloneDeep(target.examples) });
     } else if (target.example) {
       _.merge(config, { example: _.cloneDeep(target.example) });
